@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="nv.d3.js"></script>
+    <script src="stream_layers.js"></script>
+
+    <style>
+        text {
+            font: 10px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+        .image {
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .txt {
+            font: 10px sans-serif;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+        #first {
+
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+        <img class = "image" src="benteke.jpg" alt="Mountain View" style="width:1250px;height:250px;" align = "left">
+    </div>
+    <div id="chart1" class='with-3d-shadow with-transitions'>
+    <svg> </svg>
+
+</div>
+        <script>
+
+    var long_short_data = [
+        {
+            key: '2013',
+            values: [
+                 {
+                    "label" : "Games Played" ,
+                    "value" : 26
+                } ,
+                {
+                    "label" : "Games Started" ,
+                    "value" : 24
+                } ,
+                {
+                    "label" : "Market Value (In Millions)" ,
+                    "value" : 12.00
+                } ,
+                {
+                    "label" : "Hours Played" ,
+                    "value" : 35.47
+                } ,
+                {
+                    "label" : "Fouls Conceded" ,
+                    "value" : 47
+                } ,
+                {
+                    "label" : "Fouls Suffered" ,
+                    "value" : 43
+                } ,
+                {
+                    "label" : "Goals" ,
+                    "value" : 10
+                } ,
+                {
+                    "label" : "Total Shots" ,
+                    "value" : 69
+                } ,
+                {
+                    "label" : "Shots on Target" ,
+                    "value" : 28
+                } ,
+                {
+                    "label" : "Assists" ,
+                    "value" : 2
+                } ,
+                {
+                    "label" : "Tackles" ,
+                    "value" : 8
+                } ,
+                {
+                    "label" : "Yellow Cards" ,
+                    "value" : 4
+                } ,
+                {
+                    "label" : "Red Cards" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Penalties Saved" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Clean Sheets" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Saves" ,
+                    "value" : 0
+                }
+            ]
+        },
+        {
+            key: '2014',
+            values: [
+                {
+                    "label" : "Games Played" ,
+                    "value" : 29
+                } ,
+                {
+                    "label" : "Games Started" ,
+                    "value" : 26
+                } ,
+                {
+                    "label" : "Market Value (In Millions)" ,
+                    "value" : 18.00
+                } ,
+                {
+                    "label" : "Hours Played" ,
+                    "value" : 39.67
+                } ,
+                {
+                    "label" : "Fouls Conceded" ,
+                    "value" : 41
+                } ,
+                {
+                    "label" : "Fouls Suffered" ,
+                    "value" : 24
+                } ,
+                {
+                    "label" : "Goals" ,
+                    "value" : 13
+                } ,
+                {
+                    "label" : "Total Shots" ,
+                    "value" : 79
+                } ,
+                {
+                    "label" : "Shots on Target" ,
+                    "value" : 30
+                } ,
+                {
+                    "label" : "Assists" ,
+                    "value" : 8
+                } ,
+                {
+                    "label" : "Tackles" ,
+                    "value" : 23
+                } ,
+                {
+                    "label" : "Yellow Cards" ,
+                    "value" : 1
+                } ,
+                {
+                    "label" : "Red Cards" ,
+                    "value" : 1
+                } ,
+                {
+                    "label" : "Penalties Saved" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Clean Sheets" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Saves" ,
+                    "value" : 0
+                }
+            ]
+        },
+        {
+            key: '2015',
+            values: [
+                 {
+                    "label" : "Games Played" ,
+                    "value" : 25
+                } ,
+                {
+                    "label" : "Games Started" ,
+                    "value" : 12
+                } ,
+                {
+                    "label" : "Market Value (In Millions)" ,
+                    "value" : 30.00
+                } ,
+                {
+                    "label" : "Hours Played" ,
+                    "value" : 21.3
+                } ,
+                {
+                    "label" : "Fouls Conceded" ,
+                    "value" : 24
+                } ,
+                {
+                    "label" : "Fouls Suffered" ,
+                    "value" : 22
+                } ,
+                {
+                    "label" : "Goals" ,
+                    "value" : 7
+                } ,
+                {
+                    "label" : "Total Shots" ,
+                    "value" : 49
+                } ,
+                {
+                    "label" : "Shots on Target" ,
+                    "value" : 16
+                } ,
+                {
+                    "label" : "Assists" ,
+                    "value" : 2
+                } ,
+                {
+                    "label" : "Tackles" ,
+                    "value" : 12
+                } ,
+                {
+                    "label" : "Yellow Cards" ,
+                    "value" : 2
+                } ,
+                {
+                    "label" : "Red Cards" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Penalties Saved" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Clean Sheets" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "Saves" ,
+                    "value" : 0
+                }
+            ]
+        }
+    ];
+
+
+    var chart;
+    nv.addGraph(function() {
+        chart = nv.models.multiBarHorizontalChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { 
+                if(d.value > 1000){
+                    return d.value;
+                }
+                else{
+                    return d.value;
+                }
+                 })
+            //.yErr(function(d) { return [-Math.abs(d.value * Math.random() * 0.3), Math.abs(d.value * Math.random() * 0.3)] })
+            .barColor(d3.scale.category20().range())
+            .duration(250)
+            .margin({left: 100})
+            .stacked(false);
+
+        chart.yAxis.tickFormat(d3.format(',.2f'));
+
+        //chart.yAxis.axisLabel('Y Axis');
+        //chart.xAxis.axisLabel('X Axis').axisLabelDistance(20);
+
+        d3.select('#chart1 svg')
+            .datum(long_short_data)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+
+        chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+        chart.state.dispatch.on('change', function(state){
+            nv.log('state', JSON.stringify(state));
+        });
+        return chart;
+    });
+
+        </script>
+</body>
+
+</html>
